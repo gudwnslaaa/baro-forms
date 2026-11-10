@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>발주서 양식 무료 작성 - 자동 계산, 인쇄·PDF | 바로서식</title>
+<meta name="description" content="발주서 양식을 무료로 작성하세요. 공급업체, 납기일, 납품장소, 결제조건과 품목을 입력하면 발주금액이 자동 계산되고 바로 인쇄하거나 PDF로 저장할 수 있습니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="바로서식">
+<meta property="og:title" content="발주서 양식 무료 작성 - 자동 계산, 인쇄·PDF | 바로서식">
+<meta property="og:description" content="발주서 양식을 무료로 작성하세요. 공급업체, 납기일, 납품장소, 결제조건과 품목을 입력하면 발주금액이 자동 계산되고 바로 인쇄하거나 PDF로 저장할 수 있습니다.">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Nanum+Myeongjo:wght@700;800&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<!-- ADSENSE: 애드센스 코드가 들어갈 자리 -->
+</head>
+<body data-doc="order">
+<header class="site-head">
+  <a class="brand" href="../">바로<b>서식</b></a>
+  <nav class="site-nav" aria-label="주요 메뉴"><a href="../">견적서</a><a href="../transaction-statement/">거래명세표</a><a href="../purchase-order/" aria-current="page">발주서</a><a href="../guide/">작성 가이드</a></nav>
+</header>
+<main class="wrap">
+  <header class="top">
+    <div>
+      <h1>발주서 양식 무료 작성</h1>
+      <p>공급업체와 품목, 납기만 넣으면 발주금액이 자동 계산됩니다. 회원가입 없이 무료.</p>
+    </div>
+    <div class="actions">
+      <button type="button" id="btnNew">새 발주서</button>
+      <button type="button" class="primary" id="btnPrint">인쇄 · PDF 저장</button>
+    </div>
+  </header>
+  <div class="notice" id="notice">예시 내용이 채워져 있어요. 내 회사 정보와 직인은 이 브라우저에만 저장되어 다음에 와도 그대로 남습니다.</div>
+
+  <div class="grid">
+    <section class="editor" aria-label="발주서 내용 입력">
+      <fieldset>
+        <legend>발주 정보</legend>
+        <div class="row2">
+          <label>발주일자<input type="date" id="date"></label>
+          <label>납기일자<input type="date" id="due"></label>
+        </div>
+        <label>납품장소<input id="place" data-clear></label>
+        <label>결제조건<input id="pay" data-clear placeholder="예: 납품 후 30일 이내 계좌이체"></label>
+        <label>부가세<div class="seg" role="group" aria-label="부가세 방식" id="vatSeg">
+          <button type="button" data-v="excl" aria-pressed="true">별도 (10% 추가)</button>
+          <button type="button" data-v="incl" aria-pressed="false">포함</button>
+          <button type="button" data-v="none" aria-pressed="false">면세</button>
+        </div></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>받는 곳 (공급업체)</legend>
+        <div class="row2">
+          <label>상호<input id="toName" data-clear></label>
+          <label>담당자<input id="toPerson" data-clear></label>
+        </div>
+        <label>연락처<input id="toTel" inputmode="tel" data-clear></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>발주자 (내 회사)</legend>
+        <div class="row2">
+          <label>상호<input id="supName"></label>
+          <label>대표자<input id="supCeo"></label>
+        </div>
+        <div class="row2">
+          <label>사업자등록번호<input id="supNo" inputmode="numeric" placeholder="000-00-00000"></label>
+          <label>연락처<input id="supTel" inputmode="tel"></label>
+        </div>
+        <label>주소<input id="supAddr"></label>
+        <div class="row2">
+          <label>업태<input id="supType"></label>
+          <label>종목<input id="supItem"></label>
+        </div>
+        <div class="stamp-row">
+          <img id="stampThumb" alt="직인 미리보기" hidden>
+          <label style="flex:1">직인 이미지 (배경이 투명한 PNG 권장)<input type="file" id="stampFile" accept="image/*"></label>
+          <button type="button" id="stampDel" hidden>직인 삭제</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>품목</legend>
+        <div id="items" style="display:flex;flex-direction:column;gap:8px"></div>
+        <button type="button" id="addItem">+ 품목 추가</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>비고</legend>
+        <textarea id="note" rows="3" data-clear></textarea>
+      </fieldset>
+    </section>
+    <section class="preview" aria-label="발주서 미리보기">
+      <div class="paper-scroll"><div class="doc" id="doc"></div></div>
+    </section>
+  </div>
+</main>
+<section class="prose tool-info">
+<h2>발주서 작성기 사용 방법</h2>
+<ol>
+  <li><b>발주 정보</b>에 발주일자와 납기일자, 납품장소, 결제조건을 적습니다. 납기일자는 처음에 발주일 7일 뒤로 채워집니다.</li>
+  <li><b>받는 곳</b>에 주문을 받을 공급업체와 담당자를 적습니다.</li>
+  <li><b>발주자</b>에는 내 회사 정보를 넣습니다. 견적서·거래명세표 작성기와 같은 정보를 함께 씁니다.</li>
+  <li><b>품목</b>을 입력하면 발주금액이 한글·숫자로 함께 표시됩니다. 받은 견적서가 부가세 별도인지 포함인지 확인한 뒤 같은 방식으로 고르세요.</li>
+</ol>
+<h2>자주 묻는 질문</h2>
+<dl class="faq">
+  <dt>발주서만 보내도 계약이 되나요?</dt>
+  <dd>상대방이 발주서를 받아들이면 그 내용대로 거래하기로 한 근거가 됩니다. 다만 금액이 크거나 조건이 복잡하면 별도의 계약서를 쓰는 편이 안전합니다. <a href="../guide/how-to-write-purchase-order/">발주서 작성법</a>에서 자세히 설명합니다.</dd>
+  <dt>발주 번호는 어떻게 정해지나요?</dt>
+  <dd>발주일자를 기준으로 PO-연월일-01 형식으로 자동으로 붙습니다.</dd>
+</dl>
+<h2>함께 쓰면 좋은 서식</h2>
+<div class="cards">
+  <a class="card" href="../"><strong>견적서 작성</strong><span>금액을 먼저 제안할 때</span></a>
+  <a class="card" href="../transaction-statement/"><strong>거래명세표 작성</strong><span>물품을 납품할 때</span></a>
+  <a class="card" href="../guide/how-to-write-purchase-order/"><strong>발주서 작성법</strong><span>꼭 넣어야 할 항목 정리</span></a>
+</div>
+</section>
+<footer class="site-foot">
+  <span>© 2026 바로서식 · 입력한 내용은 서버로 전송되지 않습니다.</span>
+  <nav aria-label="사이트 정보"><a href="../about/">사이트 소개</a><a href="../privacy/">개인정보처리방침</a><a href="../contact/">문의</a></nav>
+</footer>
+<script src="../assets/editor.js"></script>
+</body>
+</html>

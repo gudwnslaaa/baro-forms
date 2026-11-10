@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부가세 별도와 부가세 포함 차이, 계산 방법 한 번에 정리 | 바로서식</title>
+<meta name="description" content="부가세 별도(VAT 별도)와 부가세 포함(VAT 포함)의 차이, 공급가액과 세액 계산 방법, 원 단위 끝수 처리, 면세 품목까지 예시 표로 쉽게 정리했습니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="바로서식">
+<meta property="og:title" content="부가세 별도와 부가세 포함 차이, 계산 방법 한 번에 정리 | 바로서식">
+<meta property="og:description" content="부가세 별도(VAT 별도)와 부가세 포함(VAT 포함)의 차이, 공급가액과 세액 계산 방법, 원 단위 끝수 처리, 면세 품목까지 예시 표로 쉽게 정리했습니다.">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Nanum+Myeongjo:wght@700;800&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<!-- ADSENSE: 애드센스 코드가 들어갈 자리 -->
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../">바로<b>서식</b></a>
+  <nav class="site-nav" aria-label="주요 메뉴"><a href="../../">견적서</a><a href="../../transaction-statement/">거래명세표</a><a href="../../purchase-order/">발주서</a><a href="../../guide/" aria-current="page">작성 가이드</a></nav>
+</header>
+<main class="prose">
+<article>
+<h1>부가세 별도와 부가세 포함 차이, 계산 방법 한 번에 정리</h1>
+<p class="meta">바로서식 작성 가이드 · 2026.11.10 작성</p>
+
+<p>견적서나 거래명세표에서 가장 헷갈리는 부분이 "부가세 별도"와 "부가세 포함"입니다. 같은 100만 원이라도 어느 쪽이냐에 따라 실제로 주고받는 금액이 10만 원 가까이 달라집니다.</p>
+
+<h2>한 줄 요약</h2>
+<ul>
+  <li><b>부가세 별도</b>: 적힌 금액에 부가세 10%를 <b>더해서</b> 받습니다. 100만 원 → 실제 110만 원.</li>
+  <li><b>부가세 포함</b>: 적힌 금액 <b>안에</b> 부가세가 들어 있습니다. 110만 원 → 공급가액 100만 원 + 세액 10만 원.</li>
+</ul>
+
+<h2>용어 정리</h2>
+<div class="table-scroll"><table>
+<tr><th>용어</th><th>뜻</th></tr>
+<tr><td>공급가액</td><td>부가세를 뺀 물건값·서비스값 자체</td></tr>
+<tr><td>세액(부가세)</td><td>공급가액의 10%. 판매자가 받아 두었다가 국가에 신고·납부하는 세금</td></tr>
+<tr><td>합계금액</td><td>공급가액 + 세액. 실제로 주고받는 돈</td></tr>
+</table></div>
+
+<h2>계산 방법</h2>
+<h3>부가세 별도일 때</h3>
+<p>세액 = 공급가액 × 0.1, 합계 = 공급가액 × 1.1</p>
+<h3>부가세 포함일 때</h3>
+<p>공급가액 = 합계 ÷ 1.1, 세액 = 합계 − 공급가액</p>
+<p>합계를 1.1로 나누면 소수점이 생기는 경우가 많습니다. 이때 공급가액을 원 단위로 맞춘 뒤, 세액은 합계에서 공급가액을 빼서 구하면 합계가 정확히 맞아떨어집니다.</p>
+
+<div class="table-scroll"><table>
+<tr><th>적힌 금액</th><th>방식</th><th>공급가액</th><th>세액</th><th>실제 합계</th></tr>
+<tr><td class="n">1,000,000</td><td>별도</td><td class="n">1,000,000</td><td class="n">100,000</td><td class="n">1,100,000</td></tr>
+<tr><td class="n">1,000,000</td><td>포함</td><td class="n">909,091</td><td class="n">90,909</td><td class="n">1,000,000</td></tr>
+<tr><td class="n">330,000</td><td>포함</td><td class="n">300,000</td><td class="n">30,000</td><td class="n">330,000</td></tr>
+<tr><td class="n">45,500</td><td>별도</td><td class="n">45,500</td><td class="n">4,550</td><td class="n">50,050</td></tr>
+</table></div>
+
+<h2>어떤 방식으로 적어야 할까?</h2>
+<ul>
+  <li><b>사업자끼리 거래</b>: 보통 부가세 별도로 적습니다. 받는 쪽도 부가세를 매입세액으로 공제받기 때문에 공급가액 기준으로 비교하는 데 익숙합니다.</li>
+  <li><b>개인 소비자 대상</b>: 소비자는 공제를 받지 않으므로 최종적으로 내는 금액이 중요합니다. 부가세를 포함한 금액으로 보여 주는 편이 오해가 적습니다.</li>
+  <li>어느 쪽이든 <b>합계 옆에 "부가세 별도" 또는 "부가세 포함"을 반드시 적는 것</b>이 핵심입니다.</li>
+</ul>
+
+<h2>면세는 무엇인가요?</h2>
+<p>쌀·채소 같은 가공되지 않은 식료품, 의료 보건 용역, 교육 용역, 도서 등 법에서 정한 일부 재화와 용역은 부가세가 붙지 않습니다. 면세 사업자이거나 면세 품목을 거래한다면 세액 없이 공급가액만 적습니다. 내 업종이 면세에 해당하는지는 사업자등록증의 과세 유형이나 세무서·세무 전문가를 통해 확인하세요.</p>
+
+<h2>간이과세자는 어떻게 하나요?</h2>
+<p>간이과세자는 부가세를 계산하고 신고하는 방식이 일반과세자와 다릅니다. 거래처가 세금계산서를 요구하는지, 내가 세금계산서를 발급할 수 있는 유형인지에 따라 견적서에 적는 방식이 달라질 수 있으니 국세청 안내나 세무 전문가를 통해 확인하는 것이 좋습니다.</p>
+
+<div class="callout"><p><a href="../../">견적서 작성기</a>에서 부가세를 별도·포함·면세로 바꿔 보면 공급가액과 세액이 바로 다시 계산됩니다.</p></div>
+<p class="meta">이 글은 일반적인 정보를 제공하기 위한 것으로, 개별 사안의 세무 판단은 국세청(126) 또는 세무 전문가에게 확인하시기 바랍니다.</p>
+</article>
+<h2>다른 가이드</h2>
+<div class="cards">
+  <a class="card" href="../../guide/how-to-write-estimate/"><strong>견적서 작성법</strong><span>필수 항목, 작성 순서, 실수 줄이는 팁</span></a>
+  <a class="card" href="../../guide/what-is-transaction-statement/"><strong>거래명세표란? 세금계산서와 차이</strong><span>세금계산서와 차이, 보관용 구분</span></a>
+  <a class="card" href="../../guide/how-to-write-purchase-order/"><strong>발주서 작성법</strong><span>견적서와 차이, 필수 항목</span></a>
+  <a class="card" href="../../guide/estimate-validity-stamp-pdf/"><strong>견적서 유효기간</strong><span>유효기간 정하기, 직인 이미지, PDF</span></a>
+</div>
+</main>
+<footer class="site-foot">
+  <span>© 2026 바로서식 · 입력한 내용은 서버로 전송되지 않습니다.</span>
+  <nav aria-label="사이트 정보"><a href="../../about/">사이트 소개</a><a href="../../privacy/">개인정보처리방침</a><a href="../../contact/">문의</a></nav>
+</footer>
+</body>
+</html>

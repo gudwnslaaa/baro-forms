@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.com/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/transaction-statement/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/purchase-order/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/guide/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/guide/how-to-write-estimate/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/guide/vat-included-vs-excluded/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/guide/what-is-transaction-statement/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/guide/how-to-write-purchase-order/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/guide/estimate-validity-stamp-pdf/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/about/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/privacy/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://example.com/contact/</loc><lastmod>2026-11-10</lastmod></url>
+</urlset>
